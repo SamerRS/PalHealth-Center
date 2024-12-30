@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% block title %}About Us - PalHealth Center{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">About PalHealth Center</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Our Mission</h3>
+            <p>At PalHealth Center, our mission is to provide compassionate, comprehensive, and accessible healthcare to the people of the West Bank. We are committed to improving the health and well-being of our patients by offering a wide range of medical services and personalized care.</p>
+
+            <h3>Our Vision</h3>
+            <p>Our vision is to be the leading healthcare provider in the region, known for excellence in patient care, innovation in medical practices, and a commitment to community health. We aim to create a healthier future for all.</p>
+
+            <h3>Our Values</h3>
+            <ul>
+                <li><strong>Compassion</strong></li>
+                <li><strong>Integrity</strong></li>
+                <li><strong>Excellence</strong></li>
+                <li><strong>Innovation</strong></li>
+                <li><strong>Collaboration</strong></li>
+            </ul>
+        </div>
+
+        <div class="col-md-6">
+            <img src="{% static 'images/about-img.png' %}" class="img-fluid" alt="About PalHealth Center">
+        </div>
+    </div>
+</div>
+{% endblock %}

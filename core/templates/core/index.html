@@ -1,0 +1,70 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Home - PalHealth Center{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="about_taital">About PalHealth Center</h1>
+                <p class="about_text">
+                    At PalHealth Center, we are dedicated to providing high-quality healthcare for individuals and families in the community. Our team of experienced professionals ensures you receive the best care possible.
+                </p>
+                <div class="about_bt"><a href="{% url 'about' %}">Learn More</a></div>
+            </div>
+            <div class="col-md-6">
+                <div class="about_img">
+                    <img src="{% static 'images/main.jpg' %}" alt="About PalHealth Center" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br><br>
+                <h2 class="services_taital">Our Services</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Service 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="service_card shadow p-4 rounded text-center">
+                    <i class="fa fa-user-md fa-3x text-primary mb-3"></i>
+                    <h4 class="service_title">General Checkups</h4>
+                    <p class="service_description">We offer routine health checkups to ensure your well-being.</p>
+                    <a href="#" class="service_link">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="service_card shadow p-4 rounded text-center">
+                    <i class="fa fa-stethoscope fa-3x text-primary mb-3"></i>
+                    <h4 class="service_title">Specialist Consultations</h4>
+                    <p class="service_description">Our team includes specialists to address all your health needs.</p>
+                    <a href="#" class="service_link">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="service_card shadow p-4 rounded text-center">
+                    <i class="fa fa-heartbeat fa-3x text-primary mb-3"></i>
+                    <h4 class="service_title">Cardiac Care</h4>
+                    <p class="service_description">Advanced cardiac care for heart-related concerns.</p>
+                    <a href="#" class="service_link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

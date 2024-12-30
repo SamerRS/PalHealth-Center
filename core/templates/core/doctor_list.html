@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Doctors - PalHealth Center{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container py-5">
+    <br><br>
+
+    <h2 class="text-center mb-4">Our Doctors</h2>
+    <div class="row">
+        {% for doctor in doctors %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow rounded-lg border-0">
+                <div class="card-body text-center">
+                    <!-- Center the image and make it round -->
+                    <img src="{{ doctor.image.url }}" alt="Doctor Image" 
+                         class="rounded-circle mb-3" 
+                         style="width: 150px; height: 150px; object-fit: cover; border: 5px solid #f8f9fa;">
+                    <h5 class="card-title">{{ doctor.first_name }} {{ doctor.last_name }}</h5>
+                    <p class="card-text"><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+                    <p class="card-text text-muted"><strong>Joined:</strong> {{ doctor.created_at }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No doctors available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

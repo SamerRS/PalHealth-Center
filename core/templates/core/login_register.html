@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Login/Register - PalHealth Center{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4 text-primary">Welcome to PalHealth Center</h2>
+    <div class="row justify-content-center">
+        <!-- Sign Up Form -->
+        <div class="col-md-5 mb-5">
+            <div class="card card-custom shadow-sm">
+                <div class="card-body">
+                    <h4 class="text-center mb-4 text-success">Sign Up</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="first_name" id="id_first_name" class="form-control form-control-sm" 
+                                       placeholder="First Name" value="{{ register_form.first_name.value|default:'' }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" name="last_name" id="id_last_name" class="form-control form-control-sm" 
+                                       placeholder="Last Name" value="{{ register_form.last_name.value|default:'' }}" required>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="email" name="email" id="id_email" class="form-control form-control-sm" 
+                                   placeholder="Email" value="{{ register_form.email.value|default:'' }}" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <textarea name="address" id="id_address" class="form-control form-control-sm" rows="2" 
+                                      placeholder="Address" required>{{ register_form.address.value|default:'' }}</textarea>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" name="username" id="id_username" class="form-control form-control-sm" 
+                                   placeholder="Username" value="{{ register_form.username.value|default:'' }}" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="password" name="password1" id="id_password1" class="form-control form-control-sm" 
+                                   placeholder="Password" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="password" name="password2" id="id_password2" class="form-control form-control-sm" 
+                                   placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" name="register" class="btn btn-success w-100">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign In Form -->
+        <div class="col-md-5 mb-5">
+            <div class="card card-custom shadow-sm">
+                <div class="card-body">
+                    <h4 class="text-center mb-4 text-primary">Sign In</h4>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <input type="text" name="username" id="id_login_username" class="form-control form-control-sm" 
+                                   placeholder="Username" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="password" name="password" id="id_login_password" class="form-control form-control-sm" 
+                                   placeholder="Password" required>
+                        </div>
+                        <button type="submit" name="login" class="btn btn-primary w-100">Sign In</button>
+                        <p class="text-center mt-3">
+                            Forgot your password? <a href="#" class="text-danger">Reset here</a>
+                        </p>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if messages %}
+<div class="mt-4">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
